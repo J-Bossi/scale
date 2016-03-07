@@ -17,7 +17,7 @@ class ViewController: UIViewController {
 
     let request = NSURLRequest(URL: NSURL(string: "https://api.twitter.com/1.1/search/tweets.json?q=&geocode=-22.912214,-43.230182,1km&lang=pt&result_type=recent")!)
 
-    var currentForce: Observable<CGFloat>!
+    var currentForce: CGFloat!
 
 
 
@@ -52,22 +52,21 @@ class ViewController: UIViewController {
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
         let touch = touches.first as UITouch?
 
-//        currentForce.subscribe {
-//            touch?.force
-//        }
-//        grams.text = forceToGrams(currentForce)
+        currentForce = touch?.force
+
+        grams.text = forceToGrams(currentForce)
     }
 
     override func touchesMoved(touches: Set<UITouch>, withEvent event: UIEvent?) {
         let touch = touches.first as UITouch?
 
-//        currentForce = touch!.force
-//        grams.text = forceToGrams(currentForce)
+        currentForce = touch!.force
+        grams.text = forceToGrams(currentForce)
     }
 
     override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
-//        currentForce = 0
-//        grams.text = forceToGrams(currentForce)
+        currentForce = 0
+        grams.text = forceToGrams(currentForce)
     }
 
     @IBAction func cancelButton(sender: AnyObject) {
@@ -77,11 +76,6 @@ class ViewController: UIViewController {
     func forceToGrams(force:CGFloat) -> String{
         return String(format: "%.2f g", (force)/CGFloat(0.02))
     }
-
-    
-
-    
-
 
 }
 
