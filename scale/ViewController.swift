@@ -27,13 +27,12 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         //Binding the UI
-        viewModel.searchText.asObservable().bindTo(searchText.rx_text).addDisposableTo(disposeBag)
-        viewModel.output.asObservable().bindTo(outputLabel.rx_text).addDisposableTo(disposeBag)
-    }
+        searchText.rx_text.subscribeNext { searchText in self.viewModel.searchText = searchText }.addDisposableTo(disposeBag)
 
-    func setupEverything() {
+        viewModel.output.subscribeNext { text  in self.outputLabel.text = text }.addDisposableTo(disposeBag)
 
     }
+
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

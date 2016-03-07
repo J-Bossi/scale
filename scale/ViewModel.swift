@@ -10,22 +10,27 @@ import Foundation
 import RxSwift
 
 class ViewModel {
-    var output : Variable<String> = Variable("")
+    var output = PublishSubject<String?>()
    // var force = BehaviorSubject<CGFloat>(value: 1)
     let request = NSURLRequest(URL: NSURL(string: "https://api.twitter.com/1.1/search/tweets.json?q=&geocode=-22.912214,-43.230182,1km&lang=pt&result_type=recent")!)
     let disposeBag = DisposeBag()
-    var searchText : Variable<String> = Variable("")
+    var searchText :String? {
+        didSet {
+            if let text = searchText {
+                getTweets(text)
+            }
+        }
+    }
+
+    func getTweets(query: String) {
+        NSURLSession.sharedSession().rx_JSON(request).subscribeNext{ json in self.output = json as! PublishSubject<String?>}.addDisposableTo(disposeBag)
+    }
+
 
     init() {
 
-        let responseJSON = NSURLSession.sharedSession().rx_JSON(request)
-
-        let cancelRequest = responseJSON
-            // this will fire the request
-            .subscribeNext { json in
-                self.output = json as! Variable<String>
-        }.addDisposableTo(disposeBag)
 
     }
+
 
 }
