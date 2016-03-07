@@ -14,8 +14,11 @@ class ViewController: UIViewController {
 
     @IBOutlet weak var grams: UILabel!
     @IBOutlet weak var outputLabel : UILabel!
+    @IBOutlet weak var searchText : UITextField!
 
-    let request = NSURLRequest(URL: NSURL(string: "https://api.twitter.com/1.1/search/tweets.json?q=&geocode=-22.912214,-43.230182,1km&lang=pt&result_type=recent")!)
+    let viewModel = ViewModel()
+
+    let disposeBag = DisposeBag()
 
     var currentForce: CGFloat!
 
@@ -23,21 +26,9 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        let responseJSON = NSURLSession.sharedSession().rx_JSON(request)
-
-        // no requests will be performed up to this point
-        // `responseJSON` is just a description how to fetch the response
-
-        let cancelRequest = responseJSON
-            // this will fire the request
-            .subscribeNext { json in
-                print(json)
-        }
-
-        NSThread.sleepForTimeInterval(3)
-
-        // if you want to cancel request after 3 seconds have passed just call
-        cancelRequest.dispose()
+        //Binding the UI
+        viewModel.searchText.asObservable().bindTo(searchText.rx_text).addDisposableTo(disposeBag)
+        viewModel.output.asObservable().bindTo(outputLabel.rx_text).addDisposableTo(disposeBag)
     }
 
     func setupEverything() {
@@ -70,7 +61,7 @@ class ViewController: UIViewController {
     }
 
     @IBAction func cancelButton(sender: AnyObject) {
-
+        searchText.resignFirstResponder()
     }
 
     func forceToGrams(force:CGFloat) -> String{
