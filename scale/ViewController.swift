@@ -22,7 +22,7 @@ class ViewController: UIViewController {
 
     let disposeBag = DisposeBag()
 
-    var currentForce: CGFloat!
+    var currentForce: CGFloat! = 0
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,10 +36,10 @@ class ViewController: UIViewController {
             if (str != nil) {
                 self.outputLabel.text = str
             }
-        }
+        }.addDisposableTo(disposeBag)
         viewModel.avatarImage.subscribeNext { img in
             self.avatarImageViewForUser.image = img
-        }
+        }.addDisposableTo(disposeBag)
     }
 
     override func didReceiveMemoryWarning() {
@@ -49,22 +49,32 @@ class ViewController: UIViewController {
 
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
         let touch = touches.first as UITouch?
-
         currentForce = touch?.force
-
-        grams.text = forceToGrams(currentForce)
+        forceObserver(currentForce).subscribeNext {value in
+            self.grams.text = self.forceToGrams(value)
+        }.addDisposableTo(disposeBag)
     }
 
     override func touchesMoved(touches: Set<UITouch>, withEvent event: UIEvent?) {
         let touch = touches.first as UITouch?
-
-        currentForce = touch!.force
-        grams.text = forceToGrams(currentForce)
+        currentForce = touch?.force
+        forceObserver(currentForce).subscribeNext {value in
+            self.grams.text = self.forceToGrams(value)
+        }.addDisposableTo(disposeBag)
     }
 
     override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
         currentForce = 0
-        grams.text = forceToGrams(currentForce)
+        forceObserver(currentForce).subscribeNext {value in
+            self.grams.text = self.forceToGrams(value)
+        }.addDisposableTo(disposeBag)
+    }
+
+    func forceObserver(element: CGFloat) -> Observable<CGFloat> {
+        return Observable.create { observer in
+            observer.on(.Next(element))
+            return NopDisposable.instance
+        }
     }
 
     @IBAction func cancelButton(sender: AnyObject) {
