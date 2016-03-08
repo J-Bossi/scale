@@ -84,11 +84,15 @@ strip_invalid_archs() {
 
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
+  install_framework "Pods-scale/Alamofire.framework"
+  install_framework "Pods-scale/RxAlamofire.framework"
   install_framework "Pods-scale/RxCocoa.framework"
   install_framework "Pods-scale/RxSwift.framework"
   install_framework "Pods-scale/SwiftyJSON.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
+  install_framework "Pods-scale/Alamofire.framework"
+  install_framework "Pods-scale/RxAlamofire.framework"
   install_framework "Pods-scale/RxCocoa.framework"
   install_framework "Pods-scale/RxSwift.framework"
   install_framework "Pods-scale/SwiftyJSON.framework"
