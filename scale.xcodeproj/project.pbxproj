@@ -14,7 +14,7 @@
 		393E88CB1C65FAE4006EC47F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 393E88C91C65FAE4006EC47F /* LaunchScreen.storyboard */; };
 		39C1DD6F1C8DC31200248158 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39C1DD6E1C8DC31200248158 /* ViewModel.swift */; };
 		39C1DD711C8EC90000248158 /* GitHubUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39C1DD701C8EC90000248158 /* GitHubUser.swift */; };
-		39C1DD731C8EDA0200248158 /* travis.yml in Resources */ = {isa = PBXBuildFile; fileRef = 39C1DD721C8EDA0200248158 /* travis.yml */; };
+		39C1DD751C8EDBEB00248158 /* .travis.yml in Resources */ = {isa = PBXBuildFile; fileRef = 39C1DD741C8EDBEB00248158 /* .travis.yml */; };
 		39FE56CA1C8D7831004327F5 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 39FE56C91C8D7831004327F5 /* Podfile */; };
 		856C2A8AE5A6AEDDFA67D230 /* Pods_scale.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32ECB77BF632159F5E329CC0 /* Pods_scale.framework */; };
 /* End PBXBuildFile section */
@@ -50,7 +50,7 @@
 		393E88DC1C65FAE4006EC47F /* scaleUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = scaleUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		39C1DD6E1C8DC31200248158 /* ViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		39C1DD701C8EC90000248158 /* GitHubUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GitHubUser.swift; sourceTree = "<group>"; };
-		39C1DD721C8EDA0200248158 /* travis.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = travis.yml; sourceTree = "<group>"; };
+		39C1DD741C8EDBEB00248158 /* .travis.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .travis.yml; sourceTree = "<group>"; };
 		39FE56C91C8D7831004327F5 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		F4255BA290767544FEC2717C /* Pods-scale.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-scale.debug.xcconfig"; path = "Pods/Target Support Files/Pods-scale/Pods-scale.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -84,7 +84,7 @@
 		393E88B41C65FAE4006EC47F = {
 			isa = PBXGroup;
 			children = (
-				39C1DD721C8EDA0200248158 /* travis.yml */,
+				39C1DD741C8EDBEB00248158 /* .travis.yml */,
 				39FE56C91C8D7831004327F5 /* Podfile */,
 				393E88BF1C65FAE4006EC47F /* scale */,
 				393E88BE1C65FAE4006EC47F /* Products */,
@@ -242,9 +242,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				39C1DD751C8EDBEB00248158 /* .travis.yml in Resources */,
 				393E88CB1C65FAE4006EC47F /* LaunchScreen.storyboard in Resources */,
 				393E88C81C65FAE4006EC47F /* Assets.xcassets in Resources */,
-				39C1DD731C8EDA0200248158 /* travis.yml in Resources */,
 				39FE56CA1C8D7831004327F5 /* Podfile in Resources */,
 				393E88C61C65FAE4006EC47F /* Main.storyboard in Resources */,
 			);
