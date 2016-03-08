@@ -13,6 +13,7 @@ import SwiftyJSON
 class ViewModel {
 
     var output = PublishSubject<String?>()
+    var avatarImage = PublishSubject<UIImage?>()
     // var force = BehaviorSubject<CGFloat>(value: 1)
     let request = NSURLRequest(URL: NSURL(string: "https://api.github.com/users")!)
     // When user sets the slider, we request the user credential for that value
@@ -24,13 +25,30 @@ class ViewModel {
                 if self.sliderVal != nil {
                     userNumber = Int(self.sliderVal!)
                 }
-                if let login = json[userNumber]["login"].string {
+                if let loginCredential = json[userNumber]["login"].string {
                     dispatch_async(dispatch_get_main_queue(), {
-                        self.output.onNext(login)
+                        self.output.onNext(loginCredential)
+                    })
+                }
+                if let avatarURL = json[userNumber]["avatar_url"].string {
+                    dispatch_async(dispatch_get_main_queue(), {
+                        self.loadAvatarFromURL(avatarURL)
                     })
                 }
             }
                 .addDisposableTo(disposeBag)
+        }
+    }
+
+    func loadAvatarFromURL(urlString: String) {
+        if let url = NSURL(string: urlString) {
+            let request = NSURLRequest(URL: url)
+            NSURLConnection.sendAsynchronousRequest(request, queue: NSOperationQueue.mainQueue()) {
+                (response: NSURLResponse?, data: NSData?, error: NSError?) -> Void in
+                if let imageData = data as NSData? {
+                    self.avatarImage.onNext(UIImage(data: imageData))
+                }
+            }
         }
     }
 
@@ -42,7 +60,7 @@ class ViewModel {
             }
         }
     }
-    // i really forgot comments
+// i really forgot comments
     func getTweets(query: String) {
         NSURLSession.sharedSession().rx_JSON(request).debug("my request").subscribeNext { dataFromNetworking in
             let json = JSON(dataFromNetworking)
@@ -54,7 +72,6 @@ class ViewModel {
         }
             .addDisposableTo(disposeBag)
     }
-
     init() {
     }
 }

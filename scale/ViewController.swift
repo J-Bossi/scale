@@ -12,6 +12,7 @@ import RxCocoa
 
 class ViewController: UIViewController {
 
+    @IBOutlet var avatarImageViewForUser: UIImageView!
     @IBOutlet weak var grams: UILabel!
     @IBOutlet weak var outputLabel: UILabel!
     @IBOutlet weak var searchText: UITextField!
@@ -27,12 +28,17 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Binding the UI
         searchText.rx_text.subscribeNext { searchText in self.viewModel.searchText = searchText }.addDisposableTo(disposeBag)
-        userCredentialsSlider.rx_value.subscribeNext { floatValue in self.viewModel.sliderVal = floatValue }.addDisposableTo(disposeBag)
+        userCredentialsSlider.rx_value.subscribeNext { floatValue in
+            self.viewModel.sliderVal = floatValue
+        }.addDisposableTo(disposeBag)
 
         viewModel.output.subscribeNext { str in
             if (str != nil) {
                 self.outputLabel.text = str
             }
+        }
+        viewModel.avatarImage.subscribeNext { img in
+            self.avatarImageViewForUser.image = img
         }
     }
 
