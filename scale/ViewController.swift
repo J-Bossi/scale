@@ -15,6 +15,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var grams: UILabel!
     @IBOutlet weak var outputLabel: UILabel!
     @IBOutlet weak var searchText: UITextField!
+    @IBOutlet var userCredentialsSlider: UISlider!
 
     let viewModel = ViewModel()
 
@@ -26,6 +27,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Binding the UI
         searchText.rx_text.subscribeNext { searchText in self.viewModel.searchText = searchText }.addDisposableTo(disposeBag)
+        userCredentialsSlider.rx_value.subscribeNext { floatValue in self.viewModel.sliderVal = floatValue }.addDisposableTo(disposeBag)
 
         viewModel.output.subscribeNext { str in
             if (str != nil) {
