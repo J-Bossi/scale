@@ -19,23 +19,6 @@
 		856C2A8AE5A6AEDDFA67D230 /* Pods_scale.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32ECB77BF632159F5E329CC0 /* Pods_scale.framework */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		393E88D21C65FAE4006EC47F /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 393E88B51C65FAE4006EC47F /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 393E88BC1C65FAE4006EC47F;
-			remoteInfo = scale;
-		};
-		393E88DD1C65FAE4006EC47F /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 393E88B51C65FAE4006EC47F /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 393E88BC1C65FAE4006EC47F;
-			remoteInfo = scale;
-		};
-/* End PBXContainerItemProxy section */
-
 /* Begin PBXFileReference section */
 		141A8CB55FAA3C4AD323324A /* Pods-scale.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-scale.release.xcconfig"; path = "Pods/Target Support Files/Pods-scale/Pods-scale.release.xcconfig"; sourceTree = "<group>"; };
 		32ECB77BF632159F5E329CC0 /* Pods_scale.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_scale.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -46,8 +29,6 @@
 		393E88C71C65FAE4006EC47F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		393E88CA1C65FAE4006EC47F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		393E88CC1C65FAE4006EC47F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		393E88D11C65FAE4006EC47F /* scaleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = scaleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		393E88DC1C65FAE4006EC47F /* scaleUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = scaleUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		39C1DD6E1C8DC31200248158 /* ViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		39C1DD701C8EC90000248158 /* GitHubUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GitHubUser.swift; sourceTree = "<group>"; };
 		39C1DD741C8EDBEB00248158 /* .travis.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .travis.yml; sourceTree = "<group>"; };
@@ -61,20 +42,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				856C2A8AE5A6AEDDFA67D230 /* Pods_scale.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		393E88CE1C65FAE4006EC47F /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		393E88D91C65FAE4006EC47F /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -97,8 +64,6 @@
 			isa = PBXGroup;
 			children = (
 				393E88BD1C65FAE4006EC47F /* scale.app */,
-				393E88D11C65FAE4006EC47F /* scaleTests.xctest */,
-				393E88DC1C65FAE4006EC47F /* scaleUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -158,42 +123,6 @@
 			productReference = 393E88BD1C65FAE4006EC47F /* scale.app */;
 			productType = "com.apple.product-type.application";
 		};
-		393E88D01C65FAE4006EC47F /* scaleTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 393E88E81C65FAE4006EC47F /* Build configuration list for PBXNativeTarget "scaleTests" */;
-			buildPhases = (
-				393E88CD1C65FAE4006EC47F /* Sources */,
-				393E88CE1C65FAE4006EC47F /* Frameworks */,
-				393E88CF1C65FAE4006EC47F /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				393E88D31C65FAE4006EC47F /* PBXTargetDependency */,
-			);
-			name = scaleTests;
-			productName = scaleTests;
-			productReference = 393E88D11C65FAE4006EC47F /* scaleTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
-		393E88DB1C65FAE4006EC47F /* scaleUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 393E88EB1C65FAE4006EC47F /* Build configuration list for PBXNativeTarget "scaleUITests" */;
-			buildPhases = (
-				393E88D81C65FAE4006EC47F /* Sources */,
-				393E88D91C65FAE4006EC47F /* Frameworks */,
-				393E88DA1C65FAE4006EC47F /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				393E88DE1C65FAE4006EC47F /* PBXTargetDependency */,
-			);
-			name = scaleUITests;
-			productName = scaleUITests;
-			productReference = 393E88DC1C65FAE4006EC47F /* scaleUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -206,14 +135,6 @@
 				TargetAttributes = {
 					393E88BC1C65FAE4006EC47F = {
 						CreatedOnToolsVersion = 7.2.1;
-					};
-					393E88D01C65FAE4006EC47F = {
-						CreatedOnToolsVersion = 7.2.1;
-						TestTargetID = 393E88BC1C65FAE4006EC47F;
-					};
-					393E88DB1C65FAE4006EC47F = {
-						CreatedOnToolsVersion = 7.2.1;
-						TestTargetID = 393E88BC1C65FAE4006EC47F;
 					};
 				};
 			};
@@ -231,8 +152,6 @@
 			projectRoot = "";
 			targets = (
 				393E88BC1C65FAE4006EC47F /* scale */,
-				393E88D01C65FAE4006EC47F /* scaleTests */,
-				393E88DB1C65FAE4006EC47F /* scaleUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -247,20 +166,6 @@
 				393E88C81C65FAE4006EC47F /* Assets.xcassets in Resources */,
 				39FE56CA1C8D7831004327F5 /* Podfile in Resources */,
 				393E88C61C65FAE4006EC47F /* Main.storyboard in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		393E88CF1C65FAE4006EC47F /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		393E88DA1C65FAE4006EC47F /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -326,34 +231,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		393E88CD1C65FAE4006EC47F /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		393E88D81C65FAE4006EC47F /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		393E88D31C65FAE4006EC47F /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 393E88BC1C65FAE4006EC47F /* scale */;
-			targetProxy = 393E88D21C65FAE4006EC47F /* PBXContainerItemProxy */;
-		};
-		393E88DE1C65FAE4006EC47F /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 393E88BC1C65FAE4006EC47F /* scale */;
-			targetProxy = 393E88DD1C65FAE4006EC47F /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		393E88C41C65FAE4006EC47F /* Main.storyboard */ = {
@@ -496,54 +374,6 @@
 			};
 			name = Release;
 		};
-		393E88E91C65FAE4006EC47F /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				INFOPLIST_FILE = scaleTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = de.jbossi.scaleTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/scale.app/scale";
-			};
-			name = Debug;
-		};
-		393E88EA1C65FAE4006EC47F /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				INFOPLIST_FILE = scaleTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = de.jbossi.scaleTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/scale.app/scale";
-			};
-			name = Release;
-		};
-		393E88EC1C65FAE4006EC47F /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				INFOPLIST_FILE = scaleUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = de.jbossi.scaleUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_TARGET_NAME = scale;
-				USES_XCTRUNNER = YES;
-			};
-			name = Debug;
-		};
-		393E88ED1C65FAE4006EC47F /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				INFOPLIST_FILE = scaleUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = de.jbossi.scaleUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_TARGET_NAME = scale;
-				USES_XCTRUNNER = YES;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -561,24 +391,6 @@
 			buildConfigurations = (
 				393E88E61C65FAE4006EC47F /* Debug */,
 				393E88E71C65FAE4006EC47F /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		393E88E81C65FAE4006EC47F /* Build configuration list for PBXNativeTarget "scaleTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				393E88E91C65FAE4006EC47F /* Debug */,
-				393E88EA1C65FAE4006EC47F /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		393E88EB1C65FAE4006EC47F /* Build configuration list for PBXNativeTarget "scaleUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				393E88EC1C65FAE4006EC47F /* Debug */,
-				393E88ED1C65FAE4006EC47F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
