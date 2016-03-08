@@ -12,7 +12,7 @@ import RxSwift
 class ViewModel {
     var output = PublishSubject<String?>()
    // var force = BehaviorSubject<CGFloat>(value: 1)
-    let request = NSURLRequest(URL: NSURL(string: "https://api.twitter.com/1.1/search/tweets.json?q=&geocode=-22.912214,-43.230182,1km&lang=pt&result_type=recent")!)
+    let request = NSURLRequest(URL: NSURL(string: "https://api.github.com/users")!)
     let disposeBag = DisposeBag()
     var searchText :String? {
         didSet {
@@ -23,7 +23,13 @@ class ViewModel {
     }
 
     func getTweets(query: String) {
-        NSURLSession.sharedSession().rx_JSON(request).subscribeNext{ json in self.output = json as! PublishSubject<String?>}.addDisposableTo(disposeBag)
+        NSURLSession.sharedSession().rx_JSON(request).debug("my request").subscribeNext{ json in
+
+            self.output = json as! PublishSubject<String?>
+            }
+            .addDisposableTo(disposeBag)
+
+
     }
 
 
