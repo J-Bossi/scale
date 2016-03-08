@@ -43,12 +43,15 @@ class ViewModel {
     func loadAvatarFromURL(urlString: String) {
         if let url = NSURL(string: urlString) {
             let request = NSURLRequest(URL: url)
-            NSURLConnection.sendAsynchronousRequest(request, queue: NSOperationQueue.mainQueue()) {
-                (response: NSURLResponse?, data: NSData?, error: NSError?) -> Void in
-                if let imageData = data as NSData? {
-                    self.avatarImage.onNext(UIImage(data: imageData))
-                }
-            }
+            let config = NSURLSessionConfiguration.defaultSessionConfiguration()
+            let session = NSURLSession(configuration: config)
+
+            let task = session.dataTaskWithRequest(request, completionHandler: { (data: NSData?, response: NSURLResponse?, error: NSError?) in
+                dispatch_async(dispatch_get_main_queue(), {
+                    if let imageData = data as NSData? {
+                        self.avatarImage.onNext(UIImage(data: imageData))
+                    } })
+            }); task.resume()
         }
     }
 
