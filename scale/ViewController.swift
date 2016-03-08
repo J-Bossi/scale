@@ -13,8 +13,8 @@ import RxCocoa
 class ViewController: UIViewController {
 
     @IBOutlet weak var grams: UILabel!
-    @IBOutlet weak var outputLabel : UILabel!
-    @IBOutlet weak var searchText : UITextField!
+    @IBOutlet weak var outputLabel: UILabel!
+    @IBOutlet weak var searchText: UITextField!
 
     let viewModel = ViewModel()
 
@@ -22,17 +22,17 @@ class ViewController: UIViewController {
 
     var currentForce: CGFloat!
 
-
-
     override func viewDidLoad() {
         super.viewDidLoad()
-        //Binding the UI
+        // Binding the UI
         searchText.rx_text.subscribeNext { searchText in self.viewModel.searchText = searchText }.addDisposableTo(disposeBag)
 
-        viewModel.output.subscribeNext { text  in self.outputLabel.text = text }.addDisposableTo(disposeBag)
-
+        viewModel.output.subscribeNext { str in
+            if (str != nil) {
+                self.outputLabel.text = str
+            }
+        }
     }
-
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -63,9 +63,7 @@ class ViewController: UIViewController {
         searchText.resignFirstResponder()
     }
 
-    func forceToGrams(force:CGFloat) -> String{
-        return String(format: "%.2f g", (force)/CGFloat(0.02))
+    func forceToGrams(force: CGFloat) -> String {
+        return String(format: "%.2f g", (force) / CGFloat(0.02))
     }
-
 }
-
