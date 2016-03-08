@@ -2,4 +2,7 @@
 language: objective-c
 
 notifications:
-slack: jbossi:Ywv2rcUHVGuCWBuB3stMQ6BM
+slack:
+rooms:
+- jbossi:Ywv2rcUHVGuCWBuB3stMQ6BM#general
+- jbossi:Ywv2rcUHVGuCWBuB3stMQ6BM#random
