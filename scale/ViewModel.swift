@@ -23,6 +23,7 @@ class ViewModel {
         }
     }
 
+    // i really forgot comments
     func getTweets(query: String) {
         NSURLSession.sharedSession().rx_JSON(request).debug("my request").subscribeNext{ dataFromNetworking in
             let json = JSON(dataFromNetworking)
