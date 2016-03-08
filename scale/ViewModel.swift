@@ -8,6 +8,7 @@
 
 import Foundation
 import RxSwift
+import SwiftyJSON
 
 class ViewModel {
     var output = PublishSubject<String?>()
@@ -23,20 +24,16 @@ class ViewModel {
     }
 
     func getTweets(query: String) {
-        NSURLSession.sharedSession().rx_JSON(request).debug("my request").subscribeNext{ json in
+        NSURLSession.sharedSession().rx_JSON(request).debug("my request").subscribeNext{ dataFromNetworking in
+            let json = JSON(dataFromNetworking)
+            if let login = json[0]["login"].string {
+                self.output.onNext(login)
+            }
 
-            self.output = json as! PublishSubject<String?>
             }
             .addDisposableTo(disposeBag)
-
-
     }
-
 
     init() {
-
-
     }
-
-
 }
