@@ -1,2 +1,5 @@
 # swift projects take also this argument
 language: objective-c
+
+notifications:
+slack: jbossi:Ywv2rcUHVGuCWBuB3stMQ6BM
